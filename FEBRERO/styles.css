@@ -1,0 +1,144 @@
+#background {
+    background-image: url('https://i.ibb.co/cXxXSzb7/xdsfg.jpg'); /* Usa la URL de tu imagen */
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: #000;
+    overflow: hidden;  /* Asegura que no haya barras de desplazamiento */
+}
+
+.content {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: white;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 600px;
+    z-index: 10; /* Asegurarse de que el contenido esté encima de los emojis */
+}
+
+h1 {
+    font-size: 45px;
+    font-weight: 700;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    margin-bottom: 40px;
+}
+
+.buttons {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    font-size: 18px;
+    padding: 15px 30px; /* Ajustar el tamaño de los botones */
+    margin: 15px;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    transition: transform 0.3s ease, background-color 0.4s ease, box-shadow 0.3s ease;
+    text-transform: uppercase;
+    font-weight: bold;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+button#siButton {
+    background-color: #F44336; /* Rojo inicial para el botón "Sí" */
+    color: white;
+    transition: background-color 0.4s ease;
+}
+
+button#siButton.clicked {
+    background-color: #FF66B2; /* Rosa cuando se hace clic en "Sí" */
+}
+
+button#noButton {
+    background-color: #F44336; /* Rojo inicial para el botón "No" */
+    color: white;
+}
+
+button:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+    transform: scale(1.1);
+}
+
+/* Estilos para las frases y respuestas */
+#frase, #respuesta {
+    font-size: 20px;
+    font-weight: 500;
+    margin-top: 40px;
+    transition: opacity 0.5s ease;
+    z-index: 10; /* Asegura que las frases estén sobre los emojis */
+}
+
+#respuesta {
+    font-size: 22px;
+    font-weight: 600;
+    color: #FF66B2; /* Color rosa para la respuesta */
+    margin-top: 20px;
+}
+
+#emojis {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    pointer-events: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Asegura que los emojis no salgan de la pantalla */
+}
+
+@keyframes emojiFlow {
+    0% {
+        opacity: 0;
+        transform: translateY(0) scale(0);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-50px) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-150px) scale(1.5);
+    }
+}
+
+#emojis span {
+    position: absolute;
+    font-size: 300px;  /* Tamaño aún más grande para los emojis */
+    animation: emojiFlow 3s ease-in-out infinite;
+    z-index: 100;
+    color: #FF66B2; /* Color rosa romántico para los emojis */
+}
+
+
